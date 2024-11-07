@@ -1,0 +1,32 @@
+# create
+
+CREATE TABLE example_table (
+    id INT PRIMARY KEY,            -- Integer
+    name VARCHAR(100),             -- Variable-length string
+    age INT,                       -- Integer
+    birthdate DATE,                -- Date
+    salary DECIMAL(10, 2),         -- Decimal number with 2 decimal places
+    is_active BOOLEAN,             -- Boolean
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Timestamp with default value
+    profile_picture BLOB,          -- Binary large object for storing images or other binary data
+    email TEXT                     -- Text for longer strings
+    height FLOAT,
+    address VARCHAR(255),
+    user_uuid UUID,
+    notes JSON
+);
+
+-------------------------------------------------------------------------
+# insert
+
+INSERT INTO example_table (id, name, age, birthdate, salary, is_active, profile_picture, email)
+VALUES
+    (1, 'John Doe', 30, '1992-05-15', 55000.50, true, NULL, 'john.doe@example.com'),
+
+-------------------------------------------------------------------------
+
+# JOIN
+
+SELECT e.name AS employee_name, d.department_name
+FROM employees AS e
+INNER JOIN departments AS d ON e.department_id = d.department_id;
